@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const closeTimeout = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,41 @@ export default function Navbar() {
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
+
+  // ─── Country data for dropdown ──────────────────────
+  const countries = [
+    { name: 'New Zealand', flag: '🇳🇿' },
+    { name: 'United Kingdom', flag: '🇬🇧' },
+    { name: 'Ireland', flag: '🇮🇪' },
+    { name: 'USA', flag: '🇺🇸' },
+    { name: 'Canada', flag: '🇨🇦' },
+    { name: 'Australia', flag: '🇦🇺' },
+    { name: 'Germany', flag: '🇩🇪' },
+  ];
+
+  // ─── Dropdown hover helpers ──────────────────────────
+  const handleDropdownEnter = () => {
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+    setDropdownOpen(true);
+  };
+
+  const handleDropdownLeave = () => {
+    closeTimeout.current = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 200);
+  };
+
+  const handleCountryClick = () => {
+    // close dropdown after clicking a country (optional)
+    setDropdownOpen(false);
+    if (closeTimeout.current) {
+      clearTimeout(closeTimeout.current);
+      closeTimeout.current = null;
+    }
+  };
 
   return (
     <>
@@ -55,9 +92,51 @@ export default function Navbar() {
           <ul className="hidden md:flex items-center space-x-6 lg:space-x-8 text-[#0F1B3D] font-medium">
             <li><Link to="/" className="hover:text-[#C99A3C] transition">Home</Link></li>
             <li><Link to="/about" className="hover:text-[#C99A3C] transition">About</Link></li>
-            <li><Link to="/destinations" className="hover:text-[#C99A3C] transition">Destinations</Link></li>
+
+            {/* Destinations with dropdown */}
+            <li
+              className="relative"
+              onMouseEnter={handleDropdownEnter}
+              onMouseLeave={handleDropdownLeave}
+            >
+              <Link
+                to="/destinations"
+                className="hover:text-[#C99A3C] transition flex items-center gap-1"
+              >
+                Destinations
+                <svg
+                  className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
+
+              {/* Dropdown menu – now with hover handling to stay open */}
+              {dropdownOpen && (
+                <div
+                  className="absolute left-0 mt-0 w-56 bg-white/90 backdrop-blur-[20px] border border-white/30 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] py-2 z-50"
+                  onMouseEnter={handleDropdownEnter}
+                  onMouseLeave={handleDropdownLeave}
+                >
+                  {countries.map((country) => (
+                    <Link
+                      key={country.name}
+                      to="#"
+                      className="flex items-center gap-3 px-5 py-2.5 text-[#0F1B3D] hover:bg-[#C99A3C]/10 hover:text-[#C99A3C] transition-colors duration-200"
+                      onClick={handleCountryClick}
+                    >
+                      <span className="text-xl">{country.flag}</span>
+                      <span className="font-medium">{country.name}</span>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </li>
+
             <li><Link to="/services" className="hover:text-[#C99A3C] transition">Services</Link></li>
-            <li><Link to="/universities" className="hover:text-[#C99A3C] transition">Universities</Link></li>
             <li><Link to="/blog" className="hover:text-[#C99A3C] transition">Blog</Link></li>
             <li><Link to="/contact" className="hover:text-[#C99A3C] transition">Contact</Link></li>
           </ul>

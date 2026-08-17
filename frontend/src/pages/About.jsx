@@ -10,14 +10,14 @@ const stats = [
 ];
 
 const mosaicImages = [
-  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&q=80',
+  'https://cdn.prod.website-files.com/68ca71f09a4062cd6374c690/6956582ed92860c0f19076d6_69438ce5cd345a791c2ea58f_million-indian-students-studying-abroad.jpeg',
   'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=500&q=80',
   'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&q=80',
-  'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=500&q=80',
+  'https://images.shiksha.com/mediadata/images/articles/1736073156phpNYHIZ9.jpeg',
   'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80',
-  'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=500&q=80',
+  'https://static.toiimg.com/thumb/msid-121727828,imgsize-186943,width-400,resizemode-4/Fewer-Indian-students-moving-abroad.jpg',
   'https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?w=500&q=80',
-  'https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?w=500&q=80',
+  'https://educationpost.in/_next/image?url=https%3A%2F%2Fapi.educationpost.in%2Fs3-images%2F1751901196275-1..jpg&w=3840&q=75',
   'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=500&q=80',
 ];
 
@@ -644,9 +644,8 @@ export default function About() {
         </div>
       </section>
 
-      {/* ============ LEADERSHIP SECTION (navy band + card grid) ============ */}
-      <section aria-label="Leadership" style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: '90px 0 100px' }}>
-        {/* Decorative sketch accents on navy */}
+      {/* <section aria-label="Leadership" style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: '90px 0 100px' }}>
+   
         <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', top: '30px', left: '3%', width: '80px', height: '80px', transform: 'rotate(-10deg)', stroke: '#C99A3C', opacity: 0.06, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
           <circle cx="20" cy="22" r="7" />
           <circle cx="44" cy="22" r="7" />
@@ -659,7 +658,7 @@ export default function About() {
         </svg>
 
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-          {/* Centered header, consistent with other sections — no big empty gap before cards */}
+         
           <div style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 56px' }}>
             <Reveal>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
@@ -682,7 +681,7 @@ export default function About() {
             </Reveal>
           </div>
 
-          {/* Card grid — side by side, no dead space */}
+          
           <div
             style={{
               display: 'grid',
@@ -695,7 +694,7 @@ export default function About() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
     </main>
   );

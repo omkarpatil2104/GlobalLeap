@@ -40,7 +40,7 @@ const whyPoints = [
 ];
 
 const carouselImages = [
-  { src: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=900&q=80', alt: 'Graduate students celebrating at convocation ceremony' },
+  { src: 'https://www.applyboard.com/wp-content/uploads/2023/01/Quiz_-Which-Destination-Country-Should-I-Study-Abroad-In.png', alt: 'Graduate students celebrating at convocation ceremony' },
   { src: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=900&q=80', alt: 'International university campus building' },
   { src: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=900&q=80', alt: 'Students studying together in a library' },
   { src: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=900&q=80', alt: 'Student walking on university campus abroad' },
@@ -827,7 +827,7 @@ export default function Home() {
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   <img
-                    src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80"
+                    src="https://images.collegexpress.com/blog/top-benefits-study-abroad-programs-personal-growth.jpg"
                     alt="Graduation celebration"
                     style={{
                       width: '100%',
@@ -848,7 +848,7 @@ export default function Home() {
                     }}
                   />
                   <img
-                    src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80"
+                    src="https://akm-img-a-in.tosshub.com/indiatoday/images/media_bank/202307/why-new-zealand-is-a-hotspot-for-indian-students-studying-abroad-052348-16x9.jpg?VersionId=UbZmua8LDJi5sqfrnbazlvdCj8zO5xWK&size=690:388"
                     alt="Students studying"
                     style={{
                       width: '100%',
@@ -871,7 +871,7 @@ export default function Home() {
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '20px' }}>
                   <img
-                    src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80"
+                    src="https://cdn.prod.website-files.com/68ca71f09a4062cd6374c690/6956582ed92860c0f19076d6_69438ce5cd345a791c2ea58f_million-indian-students-studying-abroad.jpeg"
                     alt="Campus building"
                     style={{
                       width: '100%',
