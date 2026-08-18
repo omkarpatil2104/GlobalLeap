@@ -72,15 +72,15 @@ const leaders = [
   {
     name: 'Aditya Chavan',
     role: 'CEO & Co-Founder',
-    company: 'Global Leap',
-    bio: "Aditya Chavan leads Global Leap's overall strategy and university partnerships. With over 5 years of experience in international education consulting, he has personally guided hundreds of students through admissions to top universities across the UK, Canada, and Australia.",
+    company: 'GlobaLeap',
+    bio: "Aditya Chavan leads GlobaLeap's overall strategy and university partnerships. With over 5 years of experience in international education consulting, he has personally guided hundreds of students through admissions to top universities across the UK, Canada, and Australia.",
     image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80',
   },
   {
     name: 'Dr. Simran Anand',
     role: 'Director & Co-Founder',
-    company: 'Global Leap',
-    bio: 'Dr. Simran Anand heads student counselling and academic partnerships at Global Leap. With 5+ years of experience in higher education advisory, she has built a reputation for honest, student-first guidance that has helped shape Global Leap into a trusted admissions partner.',
+    company: 'GlobaLeap',
+    bio: 'Dr. Simran Anand heads student counselling and academic partnerships at GlobaLeap. With 5+ years of experience in higher education advisory, she has built a reputation for honest, student-first guidance that has helped shape GlobaLeap into a trusted admissions partner.',
     image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80',
   },
 ];
@@ -203,7 +203,7 @@ function MosaicGrid() {
           >
             <img
               src={src}
-              alt="Global Leap team and students at work"
+              alt="GlobaLeap team and students at work"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
             <div
@@ -340,7 +340,7 @@ function LeaderCard({ leader, index }) {
             >
               <img
                 src={leader.image}
-                alt={`${leader.name}, ${leader.role} at Global Leap`}
+                alt={`${leader.name}, ${leader.role} at GlobaLeap`}
                 style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
             </div>
