@@ -85,7 +85,7 @@ export default function Navbar() {
         >
           {/* Logo */}
           <Link to="/" className="text-2xl font-bold text-[#0F1B3D] whitespace-nowrap">
-            Global<span className="text-[#C99A3C]">Leap</span>
+            Globa<span className="text-[#C99A3C]">Leap</span>
           </Link>
 
           {/* Desktop Nav Links */}
