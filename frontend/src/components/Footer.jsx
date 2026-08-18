@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Column 1 – Brand */}
           <div>
             <Link to="/" className="text-3xl font-bold">
-              Global<span className="text-[#C99A3C]">Leap</span>
+              Globa<span className="text-[#C99A3C]">Leap</span>
             </Link>
             <p className="mt-4 text-white/60 text-sm leading-relaxed max-w-xs">
               Empowering students to achieve their global education dreams. 
@@ -92,7 +92,7 @@ export default function Footer() {
       <div className="border-t border-[#C99A3C]/30">
         <div className="container mx-auto px-6 lg:px-12 py-6 flex flex-col md:flex-row justify-between items-center text-sm text-white/50">
           <p>
-            &copy; {new Date().getFullYear()} Global Leap. All rights reserved.
+            &copy; {new Date().getFullYear()} Globaleap. All rights reserved.
           </p>
           <div className="flex gap-6 mt-2 md:mt-0">
             <Link to="/privacy" className="hover:text-[#C99A3C] transition">Privacy Policy</Link>
