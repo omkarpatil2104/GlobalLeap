@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import heroVideo from '../assets/7695550-uhd_3840_2160_25fps.mp4'; // ← YOUR VIDEO HERE
 
 const countries = [
   'New Zealand',
@@ -252,7 +253,6 @@ function ZoomCarousel({ images, interval = 3500 }) {
   );
 }
 
-// ---------- Offer card with hover lift + zoom ----------
 function OfferCard({ item, index }) {
   const [hovered, setHovered] = useState(false);
   return (
@@ -366,199 +366,239 @@ export default function Home() {
 
   return (
     <main>
-      {/* ============ HERO SECTION ============ */}
-    {/* ============ HERO SECTION ============ */}
-<section aria-label="Hero" style={{ position: 'relative', minHeight: '100vh', display: 'flex', alignItems: 'center', overflow: 'hidden', paddingTop: '80px' }}>
-  <div
-    style={{
-      position: 'absolute',
-      inset: 0,
-      backgroundImage: `url(${currentImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: bgPosition,
-      filter: 'saturate(0.7) brightness(0.6)',
-      transition: 'all 1s ease-in-out',
-    }}
-  />
-  <div
-    style={{
-      position: 'absolute',
-      inset: 0,
-      background: `
-        linear-gradient(
-          to right,
-          rgba(10, 15, 26, 0.85) 0%,
-          rgba(10, 15, 26, 0.55) 45%,
-          rgba(10, 15, 26, 0.25) 75%,
-          rgba(10, 15, 26, 0.1) 100%
-        ),
-        linear-gradient(
-          to top,
-          rgba(10, 15, 26, 0.75) 0%,
-          rgba(10, 15, 26, 0.2) 40%,
-          rgba(10, 15, 26, 0) 70%
-        )
-      `,
-    }}
-  />
+      {/* ============ HERO SECTION WITH VIDEO BACKGROUND ============ */}
+      <section
+        aria-label="Hero"
+        style={{
+          position: 'relative',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          overflow: 'hidden',
+          paddingTop: '80px',
+        }}
+      >
+        {/* ─── VIDEO BACKGROUND ─── */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+          }}
+        >
+          <source src={heroVideo} type="video/mp4" />
+          {/* Fallback image if video fails to load */}
+          <img
+            src={currentImage}
+            alt="University campus"
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </video>
 
-  <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '80px 24px', width: '100%' }}>
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: isDesktop ? '7fr 5fr' : '1fr',
-        gap: '48px',
-        alignItems: 'center',
-      }}
-    >
-      {/* LEFT COLUMN – unchanged */}
-      <div style={{ color: '#fff' }}>
+        {/* ─── DARK OVERLAY (LIGHTER) ─── */}
         <div
           style={{
-            display: 'inline-block',
-            marginBottom: '24px',
-            padding: '8px 20px',
-            borderRadius: '9999px',
-            background: 'rgba(255,255,255,0.1)',
-            border: '1px solid rgba(255,255,255,0.15)',
-            fontSize: '14px',
-            fontWeight: 500,
-            color: 'rgba(255,255,255,0.9)',
-            backdropFilter: 'blur(4px)',
+            position: 'absolute',
+            inset: 0,
+            background: `
+              linear-gradient(
+                to right,
+                rgba(10, 15, 26, 0.6) 0%,
+                rgba(10, 15, 26, 0.35) 45%,
+                rgba(10, 15, 26, 0.15) 75%,
+                rgba(10, 15, 26, 0.05) 100%
+              ),
+              linear-gradient(
+                to top,
+                rgba(10, 15, 26, 0.5) 0%,
+                rgba(10, 15, 26, 0.1) 40%,
+                rgba(10, 15, 26, 0) 70%
+              )
+            `,
+            zIndex: 1,
           }}
-        >
-          Trusted Study Abroad Consultants
-        </div>
+        />
 
-        <h1 style={{ fontSize: 'clamp(32px, 6vw, 72px)', fontWeight: 700, lineHeight: 1.15, margin: 0 }}>
-          Your Global{' '}
-          <span style={{ color: '#C99A3C' }}>Education</span>
-          {' '}Journey Starts Here
-        </h1>
-
-        <p style={{ marginTop: '16px', fontSize: 'clamp(16px, 2vw, 20px)', color: 'rgba(255,255,255,0.8)', maxWidth: '520px' }}>
-          Expert guidance from university selection to visa approval 
-          helping students achieve their dream of studying abroad.
-        </p>
-
-        <div style={{ marginTop: '32px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-          <button
-            style={{
-              background: '#C99A3C',
-              color: '#0F1B3D',
-              padding: '16px 32px',
-              borderRadius: '9999px',
-              fontWeight: 700,
-              fontSize: '16px',
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#D4A84B';
-              e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)';
-              e.currentTarget.style.transform = 'scale(1.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#C99A3C';
-              e.currentTarget.style.boxShadow = 'none';
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
-          >
-            Explore Opportunities
-          </button>
-          <button
-            style={{
-              border: '2px solid rgba(255,255,255,0.3)',
-              background: 'rgba(255,255,255,0.05)',
-              padding: '16px 32px',
-              borderRadius: '9999px',
-              fontWeight: 700,
-              fontSize: '16px',
-              color: '#fff',
-              cursor: 'pointer',
-              backdropFilter: 'blur(4px)',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)';
-              e.currentTarget.style.transform = 'scale(1.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-              e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
-              e.currentTarget.style.transform = 'scale(1)';
-            }}
-          >
-            Free Consultation
-          </button>
-        </div>
-      </div>
-
-      {/* RIGHT COLUMN – Popular Destinations */}
-      <div>
-        <h2
-          style={{
-            color: 'rgba(255,255,255,0.6)',
-            fontSize: '14px',
-            fontWeight: 600,
-            textTransform: 'uppercase',
-            letterSpacing: '1.5px',
-            marginBottom: '24px',
-            textAlign: isDesktopMd ? 'right' : 'center', // <-- centered on mobile
-          }}
-        >
-          Popular Destinations
-        </h2>
-
-        <div style={{ position: 'relative', overflow: 'hidden', height: `${itemHeight * 5}px` }}>
+        {/* ─── CONTENT ─── */}
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '80px 24px', width: '100%' }}>
           <div
-            ref={listRef}
             style={{
-              transform: `translateY(${translateY}px)`,
-              transition: 'transform 0.6s ease-in-out',
-              textAlign: isDesktopMd ? 'right' : 'center', // <-- centered on mobile
+              display: 'grid',
+              gridTemplateColumns: isDesktop ? '7fr 5fr' : '1fr',
+              gap: '48px',
+              alignItems: 'center',
             }}
           >
-            {countries.map((country, index) => (
+            {/* LEFT COLUMN */}
+            <div style={{ color: '#fff' }}>
               <div
-                key={index}
-                onClick={() => handleCountryClick(index)}
                 style={{
-                  height: `${itemHeight}px`,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: isDesktopMd ? 'flex-end' : 'center', // <-- centered on mobile
-                  cursor: 'pointer',
-                  fontSize: index === activeIndex ? '1.25rem' : '1rem',
-                  fontWeight: index === activeIndex ? 700 : 400,
-                  color: index === activeIndex ? '#FFFFFF' : 'rgba(255,255,255,0.4)',
-                  opacity: index === activeIndex ? 1 : 0.4,
-                  transition: 'all 0.3s ease',
-                }}
-                onMouseEnter={(e) => {
-                  if (index !== activeIndex) {
-                    e.currentTarget.style.transform = 'scale(1.05)';
-                    e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'scale(1)';
-                  if (index !== activeIndex) {
-                    e.currentTarget.style.color = 'rgba(255,255,255,0.4)';
-                  }
+                  display: 'inline-block',
+                  marginBottom: '24px',
+                  padding: '8px 20px',
+                  borderRadius: '9999px',
+                  background: 'rgba(255,255,255,0.1)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  fontSize: '14px',
+                  fontWeight: 500,
+                  color: 'rgba(255,255,255,0.9)',
+                  backdropFilter: 'blur(4px)',
                 }}
               >
-                {country}
+                Trusted Study Abroad Consultants
               </div>
-            ))}
+
+              {/* ─── HERO HEADING – White Text, Smaller ─── */}
+              <h1 style={{ 
+                fontFamily: "'Playfair Display', serif",
+                fontSize: 'clamp(28px, 3.5vw, 48px)', 
+                fontWeight: 700, 
+                lineHeight: 1.2, 
+                margin: 0,
+                color: '#FFFFFF',
+              }}>
+                Your Global{' '}
+                <span style={{ color: '#C99A3C' }}>Education</span>
+                {' '}Journey Starts Here
+              </h1>
+
+              {/* ─── HERO SUBHEADING – Smaller ─── */}
+              <p style={{ 
+                marginTop: '14px', 
+                fontSize: 'clamp(14px, 1.2vw, 17px)', 
+                color: 'rgba(255,255,255,0.85)', 
+                maxWidth: '520px',
+                lineHeight: 1.6,
+              }}>
+                Expert guidance from university selection to visa approval
+                helping students achieve their dream of studying abroad.
+              </p>
+
+              <div style={{ marginTop: '32px', display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
+                <button
+                  style={{
+                    background: '#C99A3C',
+                    color: '#0F1B3D',
+                    padding: '14px 28px',
+                    borderRadius: '9999px',
+                    fontWeight: 700,
+                    fontSize: '15px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = '#D4A84B';
+                    e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)';
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '#C99A3C';
+                    e.currentTarget.style.boxShadow = 'none';
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                >
+                  Explore Opportunities
+                </button>
+                <button
+                  style={{
+                    border: '2px solid rgba(255,255,255,0.3)',
+                    background: 'rgba(255,255,255,0.05)',
+                    padding: '14px 28px',
+                    borderRadius: '9999px',
+                    fontWeight: 700,
+                    fontSize: '15px',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    backdropFilter: 'blur(4px)',
+                    transition: 'all 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)';
+                    e.currentTarget.style.transform = 'scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
+                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+                    e.currentTarget.style.transform = 'scale(1)';
+                  }}
+                >
+                  Free Consultation
+                </button>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN – Popular Destinations */}
+            {/* <div>
+              <h2
+                style={{
+                  color: 'rgba(255,255,255,0.6)',
+                  fontSize: '14px',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                  letterSpacing: '1.5px',
+                  marginBottom: '24px',
+                  textAlign: isDesktopMd ? 'right' : 'center',
+                }}
+              >
+                Popular Destinations
+              </h2>
+
+              <div style={{ position: 'relative', overflow: 'hidden', height: `${itemHeight * 5}px` }}>
+                <div
+                  ref={listRef}
+                  style={{
+                    transform: `translateY(${translateY}px)`,
+                    transition: 'transform 0.6s ease-in-out',
+                    textAlign: isDesktopMd ? 'right' : 'center',
+                  }}
+                >
+                  {countries.map((country, index) => (
+                    <div
+                      key={index}
+                      onClick={() => handleCountryClick(index)}
+                      style={{
+                        height: `${itemHeight}px`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: isDesktopMd ? 'flex-end' : 'center',
+                        cursor: 'pointer',
+                        fontSize: index === activeIndex ? '1.25rem' : '1rem',
+                        fontWeight: index === activeIndex ? 700 : 400,
+                        color: index === activeIndex ? '#FFFFFF' : 'rgba(255,255,255,0.4)',
+                        opacity: index === activeIndex ? 1 : 0.4,
+                        transition: 'all 0.3s ease',
+                      }}
+                      onMouseEnter={(e) => {
+                        if (index !== activeIndex) {
+                          e.currentTarget.style.transform = 'scale(1.05)';
+                          e.currentTarget.style.color = 'rgba(255,255,255,0.7)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                        if (index !== activeIndex) {
+                          e.currentTarget.style.color = 'rgba(255,255,255,0.4)';
+                        }
+                      }}
+                    >
+                      {country}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div> */}
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* ============ WHY GLOBAL LEAP SECTION (white bg) ============ */}
       <section aria-label="Why Choose Global Leap" style={{ position: 'relative', overflow: 'hidden', background: '#F7F5F0', padding: '90px 0' }}>
@@ -719,7 +759,7 @@ export default function Home() {
           padding: '100px 0',
         }}
       >
-        {/* SKETCHES (same as before) */}
+        {/* SKETCHES */}
         <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', top: '30px', left: '20px', width: '80px', height: '80px', transform: 'rotate(-8deg)', stroke: '#0F1B3D', opacity: 0.05, fill: 'none', strokeWidth: 1.5, pointerEvents: 'none' }}>
           <path d="M32 10 L58 22 L32 34 L6 22 Z" strokeLinejoin="round" />
           <path d="M18 28 V42 Q32 50 46 42 V28" strokeLinejoin="round" />
@@ -919,138 +959,138 @@ export default function Home() {
         </div>
       </section>
 
-     {/* ============ POPULAR DESTINATIONS – MARQUEE with CLICKABLE CARDS ============ */}
-<section
-  aria-label="Popular Destinations"
-  style={{
-    position: 'relative',
-    overflow: 'hidden',
-    background: '#F7F5F0',
-    padding: '80px 0',
-  }}
->
-  <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', top: '30px', right: '5%', width: '70px', height: '70px', transform: 'rotate(15deg)', stroke: '#C99A3C', opacity: 0.06, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
-    <circle cx="32" cy="32" r="18" />
-    <path d="M32 14 V18 M32 46 V50 M14 32 H18 M46 32 H50" strokeLinecap="round" />
-  </svg>
-  <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', bottom: '20px', left: '3%', width: '60px', height: '60px', transform: 'rotate(-8deg)', stroke: '#0F1B3D', opacity: 0.05, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
-    <path d="M32 14 L58 26 L32 38 L6 26 Z" strokeLinejoin="round" />
-    <path d="M18 30 V44 Q32 52 46 44 V30" strokeLinejoin="round" />
-  </svg>
+      {/* ============ POPULAR DESTINATIONS – MARQUEE ============ */}
+      <section
+        aria-label="Popular Destinations"
+        style={{
+          position: 'relative',
+          overflow: 'hidden',
+          background: '#F7F5F0',
+          padding: '80px 0',
+        }}
+      >
+        <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', top: '30px', right: '5%', width: '70px', height: '70px', transform: 'rotate(15deg)', stroke: '#C99A3C', opacity: 0.06, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
+          <circle cx="32" cy="32" r="18" />
+          <path d="M32 14 V18 M32 46 V50 M14 32 H18 M46 32 H50" strokeLinecap="round" />
+        </svg>
+        <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', bottom: '20px', left: '3%', width: '60px', height: '60px', transform: 'rotate(-8deg)', stroke: '#0F1B3D', opacity: 0.05, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
+          <path d="M32 14 L58 26 L32 38 L6 26 Z" strokeLinejoin="round" />
+          <path d="M18 30 V44 Q32 52 46 44 V30" strokeLinejoin="round" />
+        </svg>
 
-  <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-    <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-      <Reveal>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
-          <span style={{ width: '24px', height: '2px', background: '#C99A3C' }} />
-          <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase' }}>Explore Opportunities</span>
-          <span style={{ width: '24px', height: '2px', background: '#C99A3C' }} />
+        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
+            <Reveal>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                <span style={{ width: '24px', height: '2px', background: '#C99A3C' }} />
+                <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase' }}>Explore Opportunities</span>
+                <span style={{ width: '24px', height: '2px', background: '#C99A3C' }} />
+              </div>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, color: '#0F1B3D', margin: 0, lineHeight: 1.2 }}>
+                Educational Destinations <span style={{ color: '#C99A3C' }}>Include</span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p style={{ marginTop: '12px', color: 'rgba(15,27,61,0.6)', fontSize: '16px', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
+                Choose from a wide range of countries each offering unique academic experiences, career pathways.
+              </p>
+            </Reveal>
+          </div>
+
+          <div style={{ position: 'relative', overflow: 'hidden', width: '100%', padding: '8px 0' }}>
+            <style>{`
+              @keyframes marqueeScroll {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
+              }
+              .marquee-track {
+                display: flex;
+                gap: 20px;
+                width: max-content;
+                animation: marqueeScroll ${countries.length * 4}s linear infinite;
+              }
+              .marquee-track:hover {
+                animation-play-state: paused;
+              }
+              .dest-card {
+                display: block;
+                flex: 0 0 200px;
+                height: 280px;
+                border-radius: 16px;
+                background-size: cover;
+                background-position: center;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                cursor: pointer;
+                text-decoration: none;
+              }
+              .dest-card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 12px 32px rgba(15,27,61,0.18);
+              }
+              .dest-card .overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 24px 16px 18px;
+                background: linear-gradient(to top, rgba(15,27,61,0.7), transparent);
+                color: #fff;
+                text-align: center;
+              }
+              .dest-card .overlay h3 {
+                margin: 0;
+                font-size: 20px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+              }
+              @media (max-width: 640px) {
+                .dest-card {
+                  flex: 0 0 150px;
+                  height: 220px;
+                }
+                .dest-card .overlay h3 {
+                  font-size: 16px;
+                }
+                .marquee-track {
+                  gap: 14px;
+                }
+              }
+            `}</style>
+
+            <div className="marquee-track">
+              {countries.map((country, i) => (
+                <a
+                  key={`${country}-${i}`}
+                  href="#"
+                  className="dest-card"
+                  style={{ backgroundImage: `url(${countryImages[country]})` }}
+                >
+                  <div className="overlay">
+                    <h3>{country}</h3>
+                  </div>
+                </a>
+              ))}
+              {countries.map((country, i) => (
+                <a
+                  key={`${country}-dup-${i}`}
+                  href="#"
+                  className="dest-card"
+                  style={{ backgroundImage: `url(${countryImages[country]})` }}
+                >
+                  <div className="overlay">
+                    <h3>{country}</h3>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
-      </Reveal>
-      <Reveal delay={0.1}>
-        <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, color: '#0F1B3D', margin: 0, lineHeight: 1.2 }}>
-          Educational Destinations <span style={{ color: '#C99A3C' }}>Include</span>
-        </h2>
-      </Reveal>
-      <Reveal delay={0.2}>
-        <p style={{ marginTop: '12px', color: 'rgba(15,27,61,0.6)', fontSize: '16px', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
-          Choose from a wide range of countries each offering unique academic experiences, career pathways.
-        </p>
-      </Reveal>
-    </div>
-
-    <div style={{ position: 'relative', overflow: 'hidden', width: '100%', padding: '8px 0' }}>
-      <style>{`
-        @keyframes marqueeScroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-        .marquee-track {
-          display: flex;
-          gap: 20px;
-          width: max-content;
-          animation: marqueeScroll ${countries.length * 4}s linear infinite;
-        }
-        .marquee-track:hover {
-          animation-play-state: paused;
-        }
-        .dest-card {
-          display: block;
-          flex: 0 0 200px;
-          height: 280px;
-          border-radius: 16px;
-          background-size: cover;
-          background-position: center;
-          position: relative;
-          overflow: hidden;
-          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-          cursor: pointer;
-          text-decoration: none;
-        }
-        .dest-card:hover {
-          transform: scale(1.05);
-          box-shadow: 0 12px 32px rgba(15,27,61,0.18);
-        }
-        .dest-card .overlay {
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          padding: 24px 16px 18px;
-          background: linear-gradient(to top, rgba(15,27,61,0.7), transparent);
-          color: #fff;
-          text-align: center;
-        }
-        .dest-card .overlay h3 {
-          margin: 0;
-          font-size: 20px;
-          font-weight: 700;
-          letter-spacing: 0.5px;
-        }
-        @media (max-width: 640px) {
-          .dest-card {
-            flex: 0 0 150px;
-            height: 220px;
-          }
-          .dest-card .overlay h3 {
-            font-size: 16px;
-          }
-          .marquee-track {
-            gap: 14px;
-          }
-        }
-      `}</style>
-
-      <div className="marquee-track">
-        {countries.map((country, i) => (
-          <a
-            key={`${country}-${i}`}
-            href="#"
-            className="dest-card"
-            style={{ backgroundImage: `url(${countryImages[country]})` }}
-          >
-            <div className="overlay">
-              <h3>{country}</h3>
-            </div>
-          </a>
-        ))}
-        {countries.map((country, i) => (
-          <a
-            key={`${country}-dup-${i}`}
-            href="#"
-            className="dest-card"
-            style={{ backgroundImage: `url(${countryImages[country]})` }}
-          >
-            <div className="overlay">
-              <h3>{country}</h3>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
     </main>
   );
 }
