@@ -1013,7 +1013,7 @@ export default function Home() {
               }
               .marquee-track:hover {
                 animation-play-state: paused;
-              }
+              } 
               .dest-card {
                 display: block;
                 flex: 0 0 200px;

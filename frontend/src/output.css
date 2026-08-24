@@ -554,6 +554,11 @@ video {
   display: none;
 }
 
+html {
+  scroll-behavior: smooth;
+  /* ← ADD THIS LINE */
+}
+
 body {
   --tw-bg-opacity: 1;
   background-color: rgb(245 247 250 / var(--tw-bg-opacity, 1));

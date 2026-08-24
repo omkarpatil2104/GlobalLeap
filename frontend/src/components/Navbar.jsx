@@ -31,7 +31,7 @@ export default function Navbar() {
 
   // ─── Country data for dropdown ──────────────────────
   const countries = [
-    { name: 'New Zealand', flag: '🇳🇿' },
+    { name: 'Georgia', flag: '🇬🇪' },
     { name: 'United Kingdom', flag: '🇬🇧' },
     { name: 'Ireland', flag: '🇮🇪' },
     { name: 'USA', flag: '🇺🇸' },
@@ -56,7 +56,6 @@ export default function Navbar() {
   };
 
   const handleCountryClick = () => {
-    // close dropdown after clicking a country (optional)
     setDropdownOpen(false);
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
@@ -114,7 +113,7 @@ export default function Navbar() {
                 </svg>
               </Link>
 
-              {/* Dropdown menu – now with hover handling to stay open */}
+              {/* Dropdown menu */}
               {dropdownOpen && (
                 <div
                   className="absolute left-0 mt-0 w-56 bg-white/90 backdrop-blur-[20px] border border-white/30 rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] py-2 z-50"
@@ -124,7 +123,7 @@ export default function Navbar() {
                   {countries.map((country) => (
                     <Link
                       key={country.name}
-                      to="#"
+                      to={`/${country.name.toLowerCase()}`}
                       className="flex items-center gap-3 px-5 py-2.5 text-[#0F1B3D] hover:bg-[#C99A3C]/10 hover:text-[#C99A3C] transition-colors duration-200"
                       onClick={handleCountryClick}
                     >
