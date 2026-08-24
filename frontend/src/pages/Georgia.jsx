@@ -467,20 +467,12 @@ export default function Georgia() {
           backgroundAttachment: 'fixed',
         }}
       >
-        {/* Two overlays: lighter white + subtle dark to achieve medium-dark look */}
+        {/* Light overlay to keep dark text readable */}
         <div
           style={{
             position: 'absolute',
             inset: 0,
-            background: 'rgba(255,255,255,0.6)', // less white
-            zIndex: 1,
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'rgba(0,0,0,0.1)', // adds a touch of dark
+            background: 'rgba(255, 255, 255, 0.88)',
             zIndex: 1,
           }}
         />
