@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 // ─── data (from Home page) ────────────────────────────
 const countries = [
+  'Georgia', 
   'New Zealand',
   'United Kingdom',
   'Ireland',
@@ -12,6 +14,7 @@ const countries = [
 ];
 
 const countryImages = {
+  'Georgia': 'https://internationalbanker.com/wp-content/uploads/2025/03/Georgia.jpg', 
   'New Zealand': 'https://hblimg.mmtcdn.com/content/hubble/img/destgalleryimages/mmt/activities/m_Wellington_1_l_667_1000.jpg',
   'United Kingdom': 'https://www.nationsonline.org/gallery/UK/Palace-of-Westminster-Parliament.jpg',
   'Ireland': 'https://www.authentic-europe.com/travel-tips/why-visit-ireland/_/image/46d1f421-ac03-478a-b88e-584a656488e3:7635e060a3b71f486d43a19ae7a6e846c7e4ff23/width-768/cathedral-and-colored-houses-in-cobh',
@@ -21,8 +24,8 @@ const countryImages = {
   'Germany': 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1600&q=80',
 };
 
-// short descriptions for each (can be extended)
 const countryDescriptions = {
+  'Georgia': 'A rising hub for medical education with rich history and culture.', 
   'New Zealand': 'Breathtaking landscapes and top‑tier education.',
   'United Kingdom': 'Historic institutions with world‑class education.',
   'Ireland': 'Rich culture and welcoming academic communities.',
@@ -32,7 +35,6 @@ const countryDescriptions = {
   'Germany': 'Affordable tuition and cutting‑edge research.',
 };
 
-// hero background images (cycling)
 const heroImages = [
   'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80',
   'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1400&q=80',
@@ -107,7 +109,6 @@ export default function Destinations() {
   const isDesktop = useIsDesktop(1024);
   const isTablet = useIsTablet(640);
 
-  // hero background cycling
   const [heroIndex, setHeroIndex] = useState(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -202,7 +203,8 @@ export default function Destinations() {
                   margin: 0,
                 }}
               >
-                Our <span style={{ color: '#C99A3C' }}>Destinations</span>
+                {/* Explicitly made "Our" white */}
+                <span style={{ color: '#fff' }}>Our</span> <span style={{ color: '#C99A3C' }}>Destinations</span>
               </h1>
             </Reveal>
 
@@ -268,7 +270,6 @@ export default function Destinations() {
           overflow: 'hidden',
         }}
       >
-        {/* decorative sketches (same as home) */}
         <svg
           viewBox="0 0 64 64"
           aria-hidden
@@ -355,18 +356,21 @@ export default function Destinations() {
           >
             {countries.map((country, index) => (
               <Reveal key={country} delay={0.08 * index}>
-                <div
+                <Link
+                  to={`/${country.toLowerCase()}`}
                   style={{
+                    textDecoration: 'none',
+                    display: 'block',
                     position: 'relative',
                     borderRadius: '20px',
                     overflow: 'hidden',
-                    height: '380px', // tall vertical cards
+                    height: '380px',
                     backgroundImage: `url(${countryImages[country]})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     boxShadow: '0 8px 30px rgba(15,27,61,0.15)',
                     transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-                    cursor: 'default',
+                    cursor: 'pointer',
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = 'scale(1.02)';
@@ -377,7 +381,6 @@ export default function Destinations() {
                     e.currentTarget.style.boxShadow = '0 8px 30px rgba(15,27,61,0.15)';
                   }}
                 >
-                  {/* gradient overlay for text readability */}
                   <div
                     style={{
                       position: 'absolute',
@@ -385,7 +388,6 @@ export default function Destinations() {
                       background: 'linear-gradient(to top, rgba(15,27,61,0.7) 0%, rgba(15,27,61,0.2) 60%, transparent 100%)',
                     }}
                   />
-                  {/* content at bottom */}
                   <div
                     style={{
                       position: 'absolute',
@@ -396,12 +398,14 @@ export default function Destinations() {
                       color: '#fff',
                     }}
                   >
+                    {/* Added explicit white color to country names */}
                     <h3
                       style={{
                         fontSize: '24px',
                         fontWeight: 700,
                         margin: 0,
                         letterSpacing: '0.5px',
+                        color: '#fff', 
                       }}
                     >
                       {country}
@@ -428,23 +432,12 @@ export default function Destinations() {
                         fontWeight: 600,
                         border: '1px solid rgba(201,154,60,0.3)',
                         transition: 'all 0.3s ease',
-                        cursor: 'pointer',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.background = '#C99A3C';
-                        e.currentTarget.style.color = '#0F1B3D';
-                        e.currentTarget.style.borderColor = '#C99A3C';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.background = 'rgba(201,154,60,0.2)';
-                        e.currentTarget.style.color = '#C99A3C';
-                        e.currentTarget.style.borderColor = 'rgba(201,154,60,0.3)';
                       }}
                     >
                       Explore →
                     </div>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             ))}
           </div>
@@ -452,4 +445,4 @@ export default function Destinations() {
       </section>
     </main>
   );
-}
+} 

@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false); // Desktop dropdown
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false); // Mobile/Tablet dropdown
   const closeTimeout = useRef(null);
 
   useEffect(() => {
@@ -26,8 +27,17 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
-  const toggleMenu = () => setIsOpen(!isOpen);
-  const closeMenu = () => setIsOpen(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+    if (!isOpen) {
+      // Reset mobile dropdown when opening the menu
+      setMobileDropdownOpen(false);
+    }
+  };
+  const closeMenu = () => {
+    setIsOpen(false);
+    setMobileDropdownOpen(false);
+  };
 
   // ─── Country data for dropdown ──────────────────────
   const countries = [
@@ -40,7 +50,7 @@ export default function Navbar() {
     { name: 'Germany', flag: '🇩🇪' },
   ];
 
-  // ─── Dropdown hover helpers ──────────────────────────
+  // ─── Desktop Dropdown hover helpers ──────────────────────────
   const handleDropdownEnter = () => {
     if (closeTimeout.current) {
       clearTimeout(closeTimeout.current);
@@ -61,6 +71,11 @@ export default function Navbar() {
       clearTimeout(closeTimeout.current);
       closeTimeout.current = null;
     }
+  };
+
+  // Mobile dropdown toggle
+  const toggleMobileDropdown = () => {
+    setMobileDropdownOpen(!mobileDropdownOpen);
   };
 
   return (
@@ -177,7 +192,7 @@ export default function Navbar() {
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex flex-col h-full p-8">
+        <div className="flex flex-col h-full p-8 overflow-y-auto">
           <button
             onClick={closeMenu}
             className="self-end text-[#0F1B3D] text-2xl p-2 hover:text-[#C99A3C] transition"
@@ -188,7 +203,43 @@ export default function Navbar() {
           <ul className="flex flex-col space-y-6 mt-8 text-[#0F1B3D] text-xl font-medium">
             <li><Link to="/" onClick={closeMenu} className="hover:text-[#C99A3C] transition">Home</Link></li>
             <li><Link to="/about" onClick={closeMenu} className="hover:text-[#C99A3C] transition">About</Link></li>
-            <li><Link to="/destinations" onClick={closeMenu} className="hover:text-[#C99A3C] transition">Destinations</Link></li>
+            
+            {/* Mobile/Tablet Destinations Dropdown */}
+            <li>
+              <button
+                onClick={toggleMobileDropdown}
+                className="flex items-center justify-between w-full text-left hover:text-[#C99A3C] transition"
+              >
+                <span>Destinations</span>
+                <svg
+                  className={`w-5 h-5 transition-transform duration-200 ${mobileDropdownOpen ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {/* Mobile sub-menu */}
+              {mobileDropdownOpen && (
+                <ul className="mt-4 mb-2 space-y-2 pl-4 border-l-2 border-[#C99A3C]/30">
+                  {countries.map((country) => (
+                    <li key={country.name}>
+                      <Link
+                        to={`/${country.name.toLowerCase()}`}
+                        onClick={closeMenu}
+                        className="flex items-center gap-3 py-2 text-lg text-[#0F1B3D] hover:text-[#C99A3C] transition"
+                      >
+                        <span className="text-xl">{country.flag}</span>
+                        <span className="font-normal">{country.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
             <li><Link to="/services" onClick={closeMenu} className="hover:text-[#C99A3C] transition">Services</Link></li>
             <li><Link to="/universities" onClick={closeMenu} className="hover:text-[#C99A3C] transition">Universities</Link></li>
             <li><Link to="/blog" onClick={closeMenu} className="hover:text-[#C99A3C] transition">Blog</Link></li>

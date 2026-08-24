@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import heroVideo from '../assets/7695550-uhd_3840_2160_25fps.mp4'; // ← YOUR VIDEO HERE
 
 const countries = [
+  'Georgia', // ✅ Added Georgia at the top
   'New Zealand',
   'United Kingdom',
   'Ireland',
@@ -12,6 +13,7 @@ const countries = [
 ];
 
 const countryImages = {
+  'Georgia': 'https://internationalbanker.com/wp-content/uploads/2025/03/Georgia.jpg', // ✅ Added image
   'New Zealand': 'https://hblimg.mmtcdn.com/content/hubble/img/destgalleryimages/mmt/activities/m_Wellington_1_l_667_1000.jpg',
   'United Kingdom': 'https://www.nationsonline.org/gallery/UK/Palace-of-Westminster-Parliament.jpg',
   'Ireland': 'https://www.authentic-europe.com/travel-tips/why-visit-ireland/_/image/46d1f421-ac03-478a-b88e-584a656488e3:7635e060a3b71f486d43a19ae7a6e846c7e4ff23/width-768/cathedral-and-colored-houses-in-cobh',
@@ -1047,6 +1049,7 @@ export default function Home() {
                 font-size: 20px;
                 font-weight: 700;
                 letter-spacing: 0.5px;
+                color: #fff; /* Explicitly white */
               }
               @media (max-width: 640px) {
                 .dest-card {
@@ -1055,6 +1058,7 @@ export default function Home() {
                 }
                 .dest-card .overlay h3 {
                   font-size: 16px;
+                  color: #fff; /* Explicitly white */
                 }
                 .marquee-track {
                   gap: 14px;

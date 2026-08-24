@@ -54,6 +54,9 @@ export default function Footer() {
               Top Destinations
             </h3>
             <ul className="space-y-2.5 text-white/70">
+              {/* Added Georgia at the top */}
+              <li><Link to="/georgia" className="hover:text-[#C99A3C] transition">Georgia</Link></li>
+              
               <li><Link to="/destinations" className="hover:text-[#C99A3C] transition">USA</Link></li>
               <li><Link to="/destinations" className="hover:text-[#C99A3C] transition">UK</Link></li>
               <li><Link to="/destinations" className="hover:text-[#C99A3C] transition">Canada</Link></li>

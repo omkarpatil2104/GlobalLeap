@@ -81,10 +81,21 @@ function FaqItem({ q, a, open, onClick }) {
 }
 
 export default function Georgia() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const heroImages = [
-    'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=80',
-    'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1400&q=80',
-    'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1400&q=80',
+    'https://internationalbanker.com/wp-content/uploads/2025/03/Georgia.jpg',
+    'https://www.orexca.com/img/georgia/georgia-banner.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxrkHW7ha5cYJLF6tXir91lmNeQjv0q1IsMsGB9HCM8A&s=10',
   ];
   const [heroIndex, setHeroIndex] = useState(0);
 
@@ -198,8 +209,8 @@ export default function Georgia() {
       <section
         style={{
           position: 'relative',
-          padding: '100px 0 60px',
-          minHeight: '50vh',
+          padding: isMobile ? '60px 0 40px' : '100px 0 60px',
+          minHeight: isMobile ? '40vh' : '50vh',
           display: 'flex',
           alignItems: 'center',
           overflow: 'hidden',
@@ -268,7 +279,7 @@ export default function Georgia() {
           <Reveal delay={0.1}>
             <h1
               style={{
-                fontSize: 'clamp(36px, 5vw, 56px)',
+                fontSize: isMobile ? 'clamp(32px, 8vw, 48px)' : 'clamp(36px, 5vw, 56px)',
                 fontWeight: 700,
                 color: '#fff',
                 lineHeight: 1.15,
@@ -283,13 +294,13 @@ export default function Georgia() {
             <p
               style={{
                 marginTop: '16px',
-                fontSize: 'clamp(16px, 1.5vw, 20px)',
+                fontSize: isMobile ? '16px' : 'clamp(16px, 1.5vw, 20px)',
                 color: 'rgba(255,255,255,0.8)',
                 maxWidth: '580px',
                 lineHeight: 1.7,
               }}
             >
-              Before you compare universities, understand the journey — the eligibility, the real cost, and what comes after graduation.
+              Before you compare universities, understand the journey the eligibility, the real cost, and what comes after graduation.
             </p>
           </Reveal>
 
@@ -339,7 +350,7 @@ export default function Georgia() {
 
       {/* ===== QUICK ANSWER BAND ===== */}
       <section style={{ padding: '0 24px', marginTop: '-1px' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', transform: 'translateY(-36px)' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', transform: isMobile ? 'translateY(-20px)' : 'translateY(-36px)' }}>
           <Reveal>
             <div
               style={{
@@ -347,13 +358,13 @@ export default function Georgia() {
                 borderRadius: '20px',
                 border: '1px solid rgba(201,154,60,0.25)',
                 boxShadow: '0 24px 48px rgba(15,27,61,0.12)',
-                padding: '32px 36px',
+                padding: isMobile ? '24px 20px' : '32px 36px',
               }}
             >
               <span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase' }}>
                 Quick Answer
               </span>
-              <p style={{ margin: '12px 0 0', color: '#0F1B3D', fontSize: '17px', lineHeight: 1.75, fontWeight: 500 }}>
+              <p style={{ margin: '12px 0 0', color: '#0F1B3D', fontSize: isMobile ? '16px' : '17px', lineHeight: 1.75, fontWeight: 500 }}>
                 MBBS in Georgia can be a genuine option for eligible Indian students considering medical education abroad — but the decision should rest on university-specific eligibility, the complete six-year cost, programme recognition, and a clear view of the path back to practising in India. It isn't the right fit for everyone, and that's exactly what a proper counselling conversation should help you work out.
               </p>
             </div>
@@ -362,13 +373,13 @@ export default function Georgia() {
       </section>
 
       {/* ===== ABOUT MBBS IN GEORGIA ===== */}
-      <section style={{ padding: '40px 0 80px' }}>
+      <section style={{ padding: isMobile ? '20px 0 50px' : '40px 0 80px' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '56px',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              gap: isMobile ? '24px' : '56px',
               alignItems: 'center',
             }}
           >
@@ -382,7 +393,7 @@ export default function Georgia() {
                 }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80"
+                  src="https://www.rmcedu.com/_next/image/?url=https%3A%2F%2Fdash.rmcedu.com%2Fuploads%2Falte_medical_university2_5395f7c1eb.webp&w=3840&q=75"
                   alt="Tbilisi, Georgia — a destination for Indian MBBS students"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
@@ -400,7 +411,7 @@ export default function Georgia() {
               </Reveal>
 
               <Reveal delay={0.1}>
-                <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, color: '#0F1B3D', lineHeight: 1.2, margin: 0 }}>
+                <h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(28px, 4vw, 40px)', fontWeight: 700, color: '#0F1B3D', lineHeight: 1.2, margin: 0 }}>
                   Why Students Look at <span style={{ color: '#C99A3C' }}>Georgia</span>
                 </h2>
               </Reveal>
@@ -459,12 +470,12 @@ export default function Georgia() {
         id="before-you-decide"
         style={{
           position: 'relative',
-          padding: '80px 0',
+          padding: isMobile ? '50px 0' : '80px 0',
           backgroundImage:
             'url(https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1600&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
+          backgroundAttachment: isMobile ? 'scroll' : 'fixed',
         }}
       >
         {/* Light overlay to keep dark text readable */}
@@ -489,7 +500,7 @@ export default function Georgia() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 style={{ fontSize: 'clamp(28px, 4vw, 40px)', fontWeight: 700, color: '#0F1B3D', margin: 0, lineHeight: 1.2 }}>
+              <h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(28px, 4vw, 40px)', fontWeight: 700, color: '#0F1B3D', margin: 0, lineHeight: 1.2 }}>
                 Six Things Worth Understanding <span style={{ color: '#C99A3C' }}>First</span>
               </h2>
             </Reveal>
@@ -502,16 +513,16 @@ export default function Georgia() {
 
           {/* Vertical timeline – replaces the card grid */}
           <div style={{ position: 'relative', padding: '20px 0' }}>
-            {/* Central line */}
+            {/* Central line (Desktop) or Left line (Mobile) */}
             <div
               style={{
                 position: 'absolute',
-                left: '50%',
+                left: isMobile ? '10px' : '50%',
                 top: 0,
                 bottom: 0,
                 width: '2px',
                 background: 'rgba(201,154,60,0.3)',
-                transform: 'translateX(-50%)',
+                transform: isMobile ? 'translateX(0)' : 'translateX(-50%)',
               }}
             />
 
@@ -522,18 +533,19 @@ export default function Georgia() {
                   key={index}
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: isEven ? '1fr 1fr' : '1fr 1fr',
+                    gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
                     gap: '20px',
                     marginBottom: index === beforeYouDecide.length - 1 ? 0 : '40px',
                     alignItems: 'center',
                     position: 'relative',
+                    paddingLeft: isMobile ? '40px' : '0',
                   }}
                 >
                   {/* Dot */}
                   <div
                     style={{
                       position: 'absolute',
-                      left: '50%',
+                      left: isMobile ? '10px' : '50%',
                       top: '50%',
                       transform: 'translate(-50%, -50%)',
                       width: '14px',
@@ -549,10 +561,10 @@ export default function Georgia() {
                   {/* Content */}
                   <div
                     style={{
-                      gridColumn: isEven ? '1 / 2' : '2 / 3',
-                      paddingRight: isEven ? '30px' : 0,
-                      paddingLeft: isEven ? 0 : '30px',
-                      textAlign: isEven ? 'right' : 'left',
+                      gridColumn: isMobile ? '1 / 2' : (isEven ? '1 / 2' : '2 / 3'),
+                      paddingRight: isMobile ? '0' : (isEven ? '30px' : 0),
+                      paddingLeft: isMobile ? '0' : (isEven ? 0 : '30px'),
+                      textAlign: isMobile ? 'left' : (isEven ? 'right' : 'left'),
                     }}
                   >
                     <Reveal delay={0.1 * (index + 1)}>
@@ -596,8 +608,10 @@ export default function Georgia() {
                     </Reveal>
                   </div>
 
-                  {/* Empty spacer for layout */}
-                  <div style={{ gridColumn: isEven ? '2 / 3' : '1 / 2' }} />
+                  {/* Empty spacer for layout (Desktop only) */}
+                  {!isMobile && (
+                    <div style={{ gridColumn: isEven ? '2 / 3' : '1 / 2' }} />
+                  )}
                 </div>
               );
             })}
@@ -611,8 +625,8 @@ export default function Georgia() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '48px',
+              gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+              gap: isMobile ? '40px' : '48px',
             }}
           >
             <div>
@@ -648,6 +662,7 @@ export default function Georgia() {
                         alignItems: 'center',
                         justifyContent: 'space-between',
                         gap: '10px',
+                        flexWrap: 'wrap',
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateX(6px)';
@@ -737,7 +752,7 @@ export default function Georgia() {
       </section>
 
       {/* ===== CAUCASUS UNIVERSITY SPOTLIGHT ===== */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: '80px 0' }}>
+      <section style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: isMobile ? '50px 0' : '80px 0' }}>
         <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', top: '50px', right: '5%', width: '90px', height: '90px', transform: 'rotate(10deg)', stroke: '#C99A3C', opacity: 0.06, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
           <path d="M32 14 L58 26 L32 38 L6 26 Z" strokeLinejoin="round" />
           <path d="M18 30 V44 Q32 52 46 44 V30" strokeLinejoin="round" />
@@ -750,7 +765,7 @@ export default function Georgia() {
             </span>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: '#fff', margin: '14px 0 0', lineHeight: 1.25 }}>
+            <h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: '#fff', margin: '14px 0 0', lineHeight: 1.25 }}>
               One of our university partnerships in <span style={{ color: '#C99A3C' }}>Georgia</span>
             </h2>
           </Reveal>
@@ -796,7 +811,7 @@ export default function Georgia() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <section style={{ padding: '80px 0' }}>
+      <section style={{ padding: isMobile ? '50px 0' : '80px 0' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto', padding: '0 24px' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <Reveal>
@@ -809,7 +824,7 @@ export default function Georgia() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <h2 style={{ fontSize: 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: '#0F1B3D', margin: 0 }}>
+              <h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: '#0F1B3D', margin: 0 }}>
                 Questions Families <span style={{ color: '#C99A3C' }}>Ask Us</span>
               </h2>
             </Reveal>
@@ -832,14 +847,14 @@ export default function Georgia() {
       </section>
 
       {/* ===== CTA SECTION ===== */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: '60px 0' }}>
+      <section style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: isMobile ? '40px 0' : '60px 0' }}>
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
           <Reveal>
-            <h2 style={{ fontSize: 'clamp(28px, 3vw, 40px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, margin: 0 }}>
+            <h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(28px, 3vw, 40px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, margin: 0 }}>
               Not sure if MBBS in <span style={{ color: '#C99A3C' }}>Georgia</span> is right for you?
             </h2>
             <p style={{ marginTop: '16px', color: 'rgba(255,255,255,0.6)', fontSize: '18px', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
-              Talk to us before you shortlist a university. We'll walk you through eligibility, cost and the path ahead — honestly.
+              Talk to us before you shortlist a university. We'll walk you through eligibility, cost and the path ahead honestly.
             </p>
             <div style={{ marginTop: '28px', display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
               <Link
