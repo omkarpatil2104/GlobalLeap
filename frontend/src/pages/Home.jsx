@@ -602,8 +602,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ WHY GLOBAL LEAP SECTION (white bg) ============ */}
-      <section aria-label="Why Choose Global Leap" style={{ position: 'relative', overflow: 'hidden', background: '#F7F5F0', padding: '90px 0' }}>
+      {/* ============ WHY GLOBALEAP SECTION (white bg) ============ */}
+      <section aria-label="Why Choose Globaleap" style={{ position: 'relative', overflow: 'hidden', background: '#F7F5F0', padding: '90px 0' }}>
         <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', top: '40px', left: '20px', width: '70px', height: '70px', transform: 'rotate(-10deg)', stroke: '#0F1B3D', opacity: 0.06, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
           <path d="M32 14 L58 26 L32 38 L6 26 Z" strokeLinejoin="round" />
           <path d="M18 30 V44 Q32 52 46 44 V30" strokeLinejoin="round" />
@@ -651,13 +651,13 @@ export default function Home() {
 
               <Reveal delay={0.1}>
                 <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, color: '#0F1B3D', lineHeight: 1.2, margin: 0 }}>
-                  Why Study Abroad with <span style={{ color: '#C99A3C' }}>Global Leap</span>
+                  Why Study Abroad with <span style={{ color: '#C99A3C' }}>Globaleap</span>
                 </h2>
               </Reveal>
 
               <Reveal delay={0.2}>
                 <p style={{ marginTop: '16px', color: 'rgba(15,27,61,0.65)', fontSize: '16px', lineHeight: 1.7, maxWidth: '480px' }}>
-                  Global Leap is a trusted overseas education consultancy helping students
+                  Globaleap is a trusted overseas education consultancy helping students
                   achieve admission, scholarships, and visa approval at top universities
                   worldwide — with honest, personalised guidance at every step.
                 </p>
@@ -701,8 +701,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ WHAT GLOBAL LEAP OFFERS SECTION (navy bg, card grid) ============ */}
-      <section aria-label="What Global Leap Offers" style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: '100px 0' }}>
+      {/* ============ WHAT GLOBALEAP OFFERS SECTION (navy bg, card grid) ============ */}
+      <section aria-label="What Globaleap Offers" style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: '100px 0' }}>
         <svg viewBox="0 0 64 64" aria-hidden="true" style={{ position: 'absolute', top: '50px', right: '5%', width: '90px', height: '90px', transform: 'rotate(10deg)', stroke: '#C99A3C', opacity: 0.06, fill: 'none', strokeWidth: 1.2, pointerEvents: 'none' }}>
           <path d="M32 14 L58 26 L32 38 L6 26 Z" strokeLinejoin="round" />
           <path d="M18 30 V44 Q32 52 46 44 V30" strokeLinejoin="round" />
@@ -727,7 +727,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <h2 style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700, color: '#fff', margin: 0, lineHeight: 1.2 }}>
-                What <span style={{ color: '#C99A3C' }}>Global Leap</span> Offers
+                What <span style={{ color: '#C99A3C' }}>Globaleap</span> Offers
               </h2>
             </Reveal>
             <Reveal delay={0.2}>

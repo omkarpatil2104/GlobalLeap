@@ -255,7 +255,7 @@ export default function Navbar() {
               Book Consultation
             </Link>
             <p className="text-center text-sm text-[#0F1B3D]/50 mt-4">
-              © {new Date().getFullYear()} Global Leap
+              © {new Date().getFullYear()} Globaleap
             </p>
           </div>
         </div>

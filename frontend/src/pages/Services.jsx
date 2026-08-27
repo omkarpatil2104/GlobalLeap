@@ -234,7 +234,7 @@ function MosaicGrid() {
           >
             <img
               src={src}
-              alt="Global Leap students and counsellors at work"
+              alt="Globaleap students and counsellors at work"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
             <div
@@ -266,7 +266,7 @@ function CutoutCollage({ image, accentImage }) {
       >
         <img
           src={image}
-          alt="Global Leap student support"
+          alt="Globaleap student support"
           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
         />
       </div>
@@ -606,7 +606,7 @@ export default function Services() {
 
               <Reveal delay={0.2}>
                 <p style={{ marginTop: '22px', fontSize: '16px', color: 'rgba(15,27,61,0.65)', lineHeight: 1.75, maxWidth: '460px' }}>
-                  At Global Leap, we've designed our services keeping both students and
+                  At Globaleap, we've designed our services keeping both students and
                   institutes in mind. Connect with us to learn more about our student
                   services and institutional partnerships.
                 </p>
@@ -711,7 +711,7 @@ export default function Services() {
             </Reveal>
             <Reveal delay={0.2}>
               <p style={{ marginTop: '18px', fontSize: '15.5px', color: 'rgba(15,27,61,0.6)', lineHeight: 1.7 }}>
-                Global Leap offers personalised attention to every student's admission
+                Globaleap offers personalised attention to every student's admission
                 applications, ensuring the submission of an error-free and well-represented profile.
               </p>
             </Reveal>

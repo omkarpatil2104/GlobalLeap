@@ -439,7 +439,7 @@ export default function About() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '18px' }}>
               <span style={{ width: '24px', height: '2px', background: '#C99A3C' }} />
               <span style={{ fontSize: '13px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase' }}>
-                About Global Leap
+                About Globaleap
               </span>
             </div>
           </Reveal>
@@ -573,7 +573,7 @@ export default function About() {
 
               <Reveal delay={0.3}>
                 <p style={{ marginTop: '14px', fontSize: '15.5px', color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, maxWidth: '420px' }}>
-                  Global Leap is a one-stop destination, with both on-ground counselling and
+                  Globaleap is a one-stop destination, with both on-ground counselling and
                   online access — so you can track your applications and profile anytime.
                 </p>
               </Reveal>
