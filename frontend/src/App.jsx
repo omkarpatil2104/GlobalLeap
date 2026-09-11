@@ -8,7 +8,6 @@ import Georgia from './pages/Georgia';
 import Services from './pages/Services';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
-
 function App() {
   return (
     <BrowserRouter>

@@ -40,14 +40,14 @@ function FaqItem({ q, a, open, onClick }) {
   return (
     <div
       style={{
-        borderBottom: '1px solid rgba(15,27,61,0.1)',
+        borderBottom: '1px solid rgba(255,255,255,0.15)',
         padding: '20px 4px',
         cursor: 'pointer',
       }}
       onClick={onClick}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '16px' }}>
-        <p style={{ margin: 0, fontWeight: 600, fontSize: '16px', color: '#0F1B3D' }}>{q}</p>
+        <p style={{ margin: 0, fontWeight: 600, fontSize: '16px', color: '#fff' }}>{q}</p>
         <span
           style={{
             flexShrink: 0,
@@ -74,7 +74,7 @@ function FaqItem({ q, a, open, onClick }) {
           transition: 'max-height 0.35s ease',
         }}
       >
-        <p style={{ margin: '14px 0 0', color: 'rgba(15,27,61,0.65)', fontSize: '15px', lineHeight: 1.7 }}>{a}</p>
+        <p style={{ margin: '14px 0 0', color: 'rgba(255,255,255,0.75)', fontSize: '15px', lineHeight: 1.7 }}>{a}</p>
       </div>
     </div>
   );
@@ -166,7 +166,6 @@ export default function Georgia() {
     { q: 'Does Global Leap only help with MBBS in Georgia?', a: 'No. MBBS in Georgia is our current international focus, but Global Leap\'s work starts much earlier. We specialize in student education diagnostics, career roadmaps, and communication development. We help students identify the right path for their unique goals, build a strong profile, and then guide them through the admission process to the best-fit destination.' },
   ];
 
-  // Helper to make simple list icons
   const IconWrap = ({ type }) => {
     const styles = { width: '16px', height: '16px', stroke: '#C99A3C', strokeWidth: '2', fill: 'none', strokeLinecap: 'round', strokeLinejoin: 'round' };
     if (type === 'doc') return (<svg viewBox="0 0 24 24" style={styles}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>);
@@ -196,18 +195,11 @@ export default function Georgia() {
           <Reveal><div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: 'rgba(255,255,255,0.65)', marginBottom: '20px' }}><Link to="/" style={{ color: '#C99A3C', fontWeight: 600, textDecoration: 'none' }}>Home</Link><span>›</span><span style={{ color: '#fff' }}>MBBS in Georgia</span></div></Reveal>
           <Reveal delay={0.05}><span style={{ display: 'inline-block', fontSize: '12px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase', border: '1px solid rgba(201,154,60,0.4)', borderRadius: '9999px', padding: '6px 16px', marginBottom: '20px' }}>Current International Focus</span></Reveal>
           <Reveal delay={0.1}><h1 style={{ fontSize: isMobile ? 'clamp(32px, 8vw, 48px)' : 'clamp(36px, 5vw, 56px)', fontWeight: 700, color: '#fff', lineHeight: 1.15, margin: 0 }}>MBBS in <span style={{ color: '#C99A3C' }}>Georgia</span></h1></Reveal>
-          <Reveal delay={0.2}><p style={{ marginTop: '16px', fontSize: isMobile ? '16px' : 'clamp(16px, 1.5vw, 20px)', color: 'rgba(255,255,255,0.8)', maxWidth: '580px', lineHeight: 1.7 }}>Before you compare universities, understand the journey the eligibility, the real cost, and what comes after graduation.</p></Reveal>
+          <Reveal delay={0.2}><p style={{ marginTop: '16px', fontSize: isMobile ? '16px' : 'clamp(16px, 1.5vw, 20px)', color: 'rgba(255,255,255,0.8)', maxWidth: '580px', lineHeight: 1.7 }}>From admission to life beyond MBBS we guide you at every step of your journey.</p></Reveal>
           <Reveal delay={0.3}><div style={{ display: 'flex', gap: '16px', marginTop: '28px', flexWrap: 'wrap' }}>
-            <Link to="/contact" style={{ background: '#C99A3C', color: '#0F1B3D', padding: '12px 32px', borderRadius: '9999px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A84B'; e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = '#C99A3C'; e.currentTarget.style.boxShadow = 'none'; }}>Talk to a Counsellor</Link>
-            <a href="#process-steps" style={{ border: '2px solid rgba(255,255,255,0.3)', padding: '12px 32px', borderRadius: '9999px', fontWeight: 700, fontSize: '15px', color: '#fff', textDecoration: 'none' }}>How It Works</a>
+            <Link to="/contact" style={{ background: '#C99A3C', color: '#0F1B3D', padding: '12px 32px', borderRadius: '9999px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A84B'; e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = '#C99A3C'; e.currentTarget.style.boxShadow = 'none'; }}>CHECK ELIGIBILITY</Link>
+            <a href="#process-steps" style={{ border: '2px solid rgba(255,255,255,0.3)', padding: '12px 32px', borderRadius: '9999px', fontWeight: 700, fontSize: '15px', color: '#fff', textDecoration: 'none' }}>SPEAK WITH OUR AMBASSADOR</a>
           </div></Reveal>
-        </div>
-      </section>
-
-      {/* ===== QUICK ANSWER BAND ===== */}
-      <section style={{ padding: '0 24px', marginTop: '-1px' }}>
-        <div style={{ maxWidth: '1000px', margin: '0 auto', transform: isMobile ? 'translateY(-20px)' : 'translateY(-36px)' }}>
-          <Reveal><div style={{ background: '#fff', borderRadius: '20px', border: '1px solid rgba(201,154,60,0.25)', boxShadow: '0 24px 48px rgba(15,27,61,0.12)', padding: isMobile ? '24px 20px' : '32px 36px' }}><span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase' }}>Quick Answer</span><p style={{ margin: '12px 0 0', color: '#0F1B3D', fontSize: isMobile ? '16px' : '17px', lineHeight: 1.75, fontWeight: 500 }}>MBBS in Georgia can be a genuine option for eligible Indian students considering medical education abroad — but the decision should rest on university-specific eligibility, the complete six-year cost, programme recognition, and a clear view of the path back to practising in India.</p></div></Reveal>
         </div>
       </section>
 
@@ -263,7 +255,6 @@ export default function Georgia() {
       {/* ===== GLOBALEAP GUIDANCE SECTION (NAVY BLUE BACKGROUND) ===== */}
       <section style={{ padding: '80px 0', background: '#0F1B3D' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-          
           <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 50px' }}>
             <Reveal>
               <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}>
@@ -284,10 +275,7 @@ export default function Georgia() {
             </Reveal>
           </div>
 
-          {/* 4-Card Grid with Top Images */}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: '20px' }}>
-            
-            {/* Card 1: Documents */}
             <Reveal delay={0.1}>
               <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,0,0,0.05)', border: '1px solid #eee', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ height: '8px', background: '#C99A3C' }} />
@@ -314,7 +302,6 @@ export default function Georgia() {
               </div>
             </Reveal>
 
-            {/* Card 2: When can you start? (REPLACED WITH BETTER IMAGE) */}
             <Reveal delay={0.15}>
               <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,0,0,0.05)', border: '1px solid #eee', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ height: '8px', background: '#C99A3C' }} />
@@ -343,7 +330,6 @@ export default function Georgia() {
               </div>
             </Reveal>
 
-            {/* Card 3: Cost */}
             <Reveal delay={0.2}>
               <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,0,0,0.05)', border: '1px solid #eee', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ height: '8px', background: '#C99A3C' }} />
@@ -380,7 +366,6 @@ export default function Georgia() {
               </div>
             </Reveal>
 
-            {/* Card 4: Landing */}
             <Reveal delay={0.25}>
               <div style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 30px rgba(0,0,0,0.05)', border: '1px solid #eee', display: 'flex', flexDirection: 'column', height: '100%' }}>
                 <div style={{ height: '8px', background: '#C99A3C' }} />
@@ -411,18 +396,14 @@ export default function Georgia() {
                 </div>
               </div>
             </Reveal>
-            
           </div>
         </div>
       </section>
 
-      {/* ===== WHAT HAPPENS AFTER MBBS? SECTION (WITH INDIAN FEMALE DOCTOR) ===== */}
+      {/* ===== WHAT HAPPENS AFTER MBBS? SECTION ===== */}
       <section style={{ padding: '80px 0', background: '#FFFFFF', position: 'relative', overflow: 'hidden' }}>
         <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
-          
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.6fr 1fr', gap: '40px', alignItems: 'center' }}>
-            
-            {/* Left Side (Content) */}
             <div>
               <Reveal>
                 <div style={{ marginBottom: '16px' }}>
@@ -433,13 +414,9 @@ export default function Georgia() {
               <Reveal delay={0.1}>
                 <p style={{ fontSize: '18px', color: 'rgba(15,27,61,0.6)', fontWeight: 500, marginBottom: '40px' }}>Plan early. Prepare smart. Build your future.</p>
               </Reveal>
-
-              {/* Steps Timeline */}
               <Reveal delay={0.2}>
                 <div style={{ position: 'relative', paddingTop: '30px' }}>
-                  {/* Connecting Line */}
                   <div style={{ position: 'absolute', top: '60px', left: '10%', right: '10%', height: '2px', background: 'rgba(201,154,60,0.3)', zIndex: 0 }} />
-
                   <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(6, 1fr)', gap: '20px', position: 'relative', zIndex: 1 }}>
                     {afterMbbsSteps.map((step, i) => (
                       <div key={i} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -453,8 +430,6 @@ export default function Georgia() {
                 </div>
               </Reveal>
             </div>
-
-            {/* Right Side (Indian Female Doctor Image with Animation) */}
             <Reveal delay={0.3}>
               <div style={{ position: 'relative', display: 'flex', justifyContent: 'center' }}>
                 <style>{`
@@ -483,31 +458,72 @@ export default function Georgia() {
                 />
               </div>
             </Reveal>
-
           </div>
-
-          {/* Quote Banner */}
           <Reveal delay={0.4}>
-            <div style={{ 
-              marginTop: '50px', 
-              background: '#0F1B3D', 
-              padding: '20px 30px', 
-              borderRadius: '12px', 
-              textAlign: 'center',
-              boxShadow: '0 10px 30px rgba(15,27,61,0.3)'
-            }}>
-              <h3 style={{ 
-                margin: 0, 
-                color: '#fff', 
-                fontSize: 'clamp(16px, 2vw, 24px)', 
-                fontWeight: 800, 
-                letterSpacing: '1px' 
-              }}>
+            <div style={{ marginTop: '50px', background: '#0F1B3D', padding: '20px 30px', borderRadius: '12px', textAlign: 'center', boxShadow: '0 10px 30px rgba(15,27,61,0.3)' }}>
+              <h3 style={{ margin: 0, color: '#fff', fontSize: 'clamp(16px, 2vw, 24px)', fontWeight: 800, letterSpacing: '1px' }}>
                 MBBS IS THE MILESTONE. YOUR CAREER IS THE JOURNEY.
               </h3>
             </div>
           </Reveal>
+        </div>
+      </section>
 
+      {/* ===== NEW EXACT BANNER: WANT TO HEAR IT FROM A STUDENT? ===== */}
+      <section style={{ padding: '40px 0', background: '#F7F5F0' }}>
+        <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
+          <Reveal>
+            <div style={{ 
+              background: '#0F1B3D', 
+              borderRadius: '20px', 
+              overflow: 'hidden', 
+              display: 'flex', 
+              flexDirection: isMobile ? 'column' : 'row', 
+              alignItems: 'center', 
+              justifyContent: 'space-between', 
+              padding: isMobile ? '20px' : '30px 40px', 
+              gap: '20px',
+              boxShadow: '0 20px 40px rgba(0,0,0,0.3)'
+            }}>
+              {/* Student Image - Exact match from screenshot */}
+              <div style={{ position: 'relative', width: isMobile ? '100%' : '300px', height: isMobile ? '200px' : '250px', flexShrink: 0 }}>
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" 
+                  alt="Student Ambassador" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '16px' }}
+                />
+              </div>
+
+              {/* Text & Button */}
+              <div style={{ flex: 1, textAlign: isMobile ? 'center' : 'left', padding: '0 10px' }}>
+                <h3 style={{ margin: 0, fontSize: '24px', fontWeight: 800, color: '#fff' }}>WANT TO HEAR IT FROM A STUDENT?</h3>
+                <p style={{ margin: '10px 0 20px', color: 'rgba(255,255,255,0.8)', fontSize: '16px', lineHeight: 1.6 }}>
+                  Speak directly with our Global Leap Ambassador in Georgia.
+                </p>
+                <Link 
+                  to="/contact" 
+                  style={{ 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '10px', 
+                    background: '#C99A3C', 
+                    color: '#0F1B3D', 
+                    padding: '12px 24px', 
+                    borderRadius: '9999px', 
+                    fontWeight: 700, 
+                    fontSize: '15px', 
+                    textDecoration: 'none',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A84B'; e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = '#C99A3C'; e.currentTarget.style.boxShadow = 'none'; }}
+                >
+                  SPEAK WITH OUR AMBASSADOR
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -541,38 +557,74 @@ export default function Georgia() {
         </div>
       </section>
 
-      {/* ===== CAUCASUS UNIVERSITY SPOTLIGHT (Navy Blue Background) ===== */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: isMobile ? '50px 0' : '80px 0' }}>
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1000px', margin: '0 auto', padding: '0 24px' }}>
-          <Reveal><span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase' }}>Global Leap × Caucasus University</span></Reveal>
-          <Reveal delay={0.1}><h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: '#fff', margin: '14px 0 0', lineHeight: 1.25 }}>One of our university partnerships in <span style={{ color: '#C99A3C' }}>Georgia</span></h2></Reveal>
-          <Reveal delay={0.2}><p style={{ marginTop: '18px', color: 'rgba(255,255,255,0.75)', fontSize: '16px', lineHeight: 1.8, maxWidth: '680px' }}>We don't want a university partnership to mean nothing more than a logo on a website. Before Caucasus University enters your shortlist, we walk students and parents through the programme, admission requirements, fees, location and student experience — so the question you're left with is a useful one.</p></Reveal>
-          <Reveal delay={0.4}><div style={{ marginTop: '20px' }}><Link to="/contact" style={{ display: 'inline-block', background: '#C99A3C', color: '#0F1B3D', padding: '12px 32px', borderRadius: '9999px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A84B'; e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = '#C99A3C'; e.currentTarget.style.boxShadow = 'none'; }}>Explore Caucasus University</Link></div></Reveal>
-        </div>
-      </section>
-
-      {/* ===== FAQ (White Background) ===== */}
-      <section style={{ padding: isMobile ? '50px 0' : '80px 0', background: '#fff' }}>
+      {/* ===== FAQ (NAVY BLUE BACKGROUND) ===== */}
+      <section style={{ padding: isMobile ? '50px 0' : '80px 0', background: '#0F1B3D' }}>
         <div style={{ maxWidth: '820px', margin: '0 auto', padding: '0 24px' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <Reveal><div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '18px' }}><span style={{ width: '24px', height: '2px', background: '#C99A3C' }} /><span style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '2px', color: '#C99A3C', textTransform: 'uppercase' }}>Frequently Asked</span><span style={{ width: '24px', height: '2px', background: '#C99A3C' }} /></div></Reveal>
-            <Reveal delay={0.1}><h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: '#0F1B3D', margin: 0 }}>Questions Families <span style={{ color: '#C99A3C' }}>Ask Us</span></h2></Reveal>
+            <Reveal delay={0.1}><h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(26px, 3.5vw, 36px)', fontWeight: 700, color: '#fff', margin: 0 }}>Questions Families <span style={{ color: '#C99A3C' }}>Ask Us</span></h2></Reveal>
           </div>
           <Reveal delay={0.15}><div>{faqs.map((item, i) => (<FaqItem key={i} q={item.q} a={item.a} open={openFaq === i} onClick={() => setOpenFaq(openFaq === i ? -1 : i)} />))}</div></Reveal>
         </div>
       </section>
 
-      {/* ===== CTA SECTION (Navy Blue Background) ===== */}
-      <section style={{ position: 'relative', overflow: 'hidden', background: '#0F1B3D', padding: isMobile ? '40px 0' : '60px 0' }}>
-        <div style={{ position: 'relative', zIndex: 10, maxWidth: '1280px', margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
-          <Reveal><h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(28px, 3vw, 40px)', fontWeight: 700, color: '#fff', lineHeight: 1.2, margin: 0 }}>Not sure if MBBS in <span style={{ color: '#C99A3C' }}>Georgia</span> is right for you?</h2>
-          <p style={{ marginTop: '16px', color: 'rgba(255,255,255,0.6)', fontSize: '18px', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>Talk to us before you shortlist a university. We'll walk you through eligibility, cost and the path ahead honestly.</p>
-          <div style={{ marginTop: '28px', display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/contact" style={{ background: '#C99A3C', color: '#0F1B3D', padding: '14px 36px', borderRadius: '9999px', fontWeight: 700, fontSize: '16px', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A84B'; e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = '#C99A3C'; e.currentTarget.style.boxShadow = 'none'; }}>Get Free Counselling</Link>
-            <Link to="/" style={{ border: '2px solid rgba(255,255,255,0.3)', color: '#fff', padding: '14px 36px', borderRadius: '9999px', fontWeight: 700, fontSize: '16px', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}>Back to Home</Link>
-          </div></Reveal>
+      {/* ===== CTA SECTION: FIXED BACKGROUND & LIVE DOCTOR IMAGE ===== */}
+      <section style={{ position: 'relative', overflow: 'hidden', padding: isMobile ? '60px 0' : '80px 0', background: '#F7F5F0' }}>
+        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 24px' }}>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: isMobile ? '1fr' : '1.3fr 1fr', 
+            gap: '30px', 
+            alignItems: 'center',
+            backgroundColor: '#ffffff',
+            borderRadius: '30px',
+            boxShadow: '0 20px 40px rgba(15,27,61,0.15)',
+            overflow: 'hidden',
+            padding: isMobile ? '30px 20px' : '40px'
+          }}>
+            <div>
+              <Reveal>
+                <h2 style={{ fontSize: isMobile ? 'clamp(24px, 5vw, 32px)' : 'clamp(28px, 3vw, 40px)', fontWeight: 700, color: '#0F1B3D', lineHeight: 1.2, margin: 0 }}>
+                  Not sure if MBBS in <span style={{ color: '#C99A3C' }}>Georgia</span> is right for you?
+                </h2>
+                <p style={{ marginTop: '16px', color: 'rgba(15,27,61,0.7)', fontSize: '18px', maxWidth: '600px', lineHeight: 1.8 }}>
+                  Talk to us before you shortlist a university. We'll walk you through eligibility, cost and the path ahead honestly.
+                </p>
+                <div style={{ marginTop: '28px', display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                  <Link to="/contact" style={{ background: '#C99A3C', color: '#0F1B3D', padding: '14px 36px', borderRadius: '9999px', fontWeight: 700, fontSize: '16px', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.background = '#D4A84B'; e.currentTarget.style.boxShadow = '0 0 30px rgba(201,154,60,0.4)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = '#C99A3C'; e.currentTarget.style.boxShadow = 'none'; }}>Get Free Counselling</Link>
+                  <Link to="/" style={{ border: '2px solid rgba(15,27,61,0.3)', color: '#0F1B3D', padding: '14px 36px', borderRadius: '9999px', fontWeight: 700, fontSize: '16px', textDecoration: 'none', transition: 'all 0.3s ease' }} onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(15,27,61,0.05)'; e.currentTarget.style.borderColor = 'rgba(15,27,61,0.6)'; }} onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.borderColor = 'rgba(15,27,61,0.3)'; }}>Back to Home</Link>
+                </div>
+              </Reveal>
+            </div>
+
+            <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <style>{`
+                @keyframes floatDoc {
+                  0% { transform: translateY(0px); }
+                  50% { transform: translateY(-12px); }
+                  100% { transform: translateY(0px); }
+                }
+                .live-doc {
+                  animation: floatDoc 4s ease-in-out infinite;
+                }
+              `}</style>
+              <img 
+                src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&q=80" 
+                alt="Medical Doctor" 
+                className="live-doc"
+                style={{ 
+                  maxWidth: '100%', 
+                  height: '300px', 
+                  objectFit: 'cover', 
+                  borderRadius: '20px', 
+                  boxShadow: '0 20px 40px rgba(15,27,61,0.15)',
+                }} 
+              />
+            </div>
+          </div>
         </div>
       </section>
+
     </main>
   );
 }
